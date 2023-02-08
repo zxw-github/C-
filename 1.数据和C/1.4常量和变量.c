@@ -1,4 +1,5 @@
 #include <stdio.h>
+#define MAX 10 // 常量3: define定义的字符常量
 
 int age = 19; // 全局变量
 int main(void)
@@ -16,6 +17,32 @@ int main(void)
         int num2 = 20; // num2只在自己所在的{}内有效
     }
     // printf("num2=%d\n", num2);//此时num2无效
+
+    // 常量1: 字面常量
+    //  const -- 常属性
+    //  常量2: const修饰的常变量
+    const int a = 4;
+
+    int arr[MAX] = {0};
+
+    // 常量4: 枚举常量
+    // 枚举关键字 -- enum
+    enum sex
+    {
+        male,
+        female,
+        secret,
+    };
+    // male,female,secret -- 枚举常量
+    enum sex s = male;
+    enum sex t = female;
+    printf("%d\n", male);   // 默认为0
+    printf("%d\n", female); // 默认为1
+    printf("%d\n", secret); // 默认为2
+    printf("%d\n", t);      // t=1
+    t = secret;
+    printf("%d\n", t); // t=1
+    // male = 5; 枚举常量不能被修改
     return 0;
 }
 /*
