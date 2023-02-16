@@ -2,11 +2,12 @@
 #include <stdio.h>
 #define Max 20
 
-// 求出斐波那契数列
+// 用数组的方法求出斐波那契数列
 void Find_fib();
 // 求的第n个斐波那契数
 int Fib(int n);
-
+// 用循环的方法求第n个斐波那契数
+int Fib_cir(int n);
 int main(void)
 {
     int num = 0;
@@ -14,7 +15,9 @@ int main(void)
     Find_fib();
     putchar('\n');
     int ret = Fib(num);
+    printf("\n%d\n", Fib_cir(num));
     printf("%d\n", ret);
+
     return 0;
 }
 void Find_fib()
@@ -39,4 +42,18 @@ int Fib(int n)
     {
         return Fib(n - 1) + Fib(n - 2);
     }
+}
+int Fib_cir(int n)
+{
+    int a = 1;
+    int b = 1;
+    int c = 1;
+    while (n > 2)
+    {
+        c = a + b;
+        a = b;
+        b = c;
+        n--;
+    }
+    return c;
 }
