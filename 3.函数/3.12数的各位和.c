@@ -2,11 +2,13 @@
 #include <stdio.h>
 
 int every_add(int);
+int every(int);
 int main(void)
 {
     int num = 1739;
     int sum = every_add(num);
     printf("%d\n", sum);
+    every(num);
     return 0;
 }
 int every_add(int n)
@@ -19,4 +21,12 @@ int every_add(int n)
     {
         return n;
     }
+}
+int every(int n)
+{
+    if (n > 9)
+    {
+        every(n / 10);
+    }
+    printf("%d", n % 10);
 }
